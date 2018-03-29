@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Totte Posts</title>
+</head>
+<body>
+
+<h2>新規投稿</h2>
+
+<form method="post">
+
+  {{ form.name.label }}
+  {{ form.name }}
+  <br>
+
+  {{ form.title.label }}
+  {{ form.title }}
+  <br>
+  {{ form.body.label }}
+  {{ form.body }}
+  <br>
+  <br>
+
+  {{ form.csrf_token }}
+  <button type="submit">投稿する</button>
+</form>
+
+<h2>投稿内容一覧</h2>
+{% for post in posts %}
+  <label>投稿者:</label>
+  <span>{{ post.name }}</span>
+
+  <label>投稿タイトル:</label>
+  <span>{{ post.title }}</span>
+
+  <label>投稿:</label>
+  <span>{{ post.body }}</span>
+
+  <label>投稿日時:</label>
+  <span>{{ post.created_at }}</span>
+  <br>
+
+{% endfor %}
+
+</body>
+</html>
